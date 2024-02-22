@@ -1,0 +1,28 @@
+<div class="details__wrap" *ngIf="details">
+
+    <h2 class="details__title">{{details.title ?? details.name}}</h2>
+    <div class="details__info">
+        <mat-list>
+            <mat-list-item><span>{{details.director ? 'Director' : 'Skin color'}}: </span>{{details.director ?? details.skin_color}}</mat-list-item>
+            <mat-list-item><span>{{details.producer ? 'Producer' : 'Eye color'}}Producer:</span>{{details.producer ?? details.eye_color}}</mat-list-item>
+            <mat-list-item><span>{{details.release_date ? 'Release Date' : 'Birth Date'}}Release Date:</span>{{details.release_date ?? details.birth_year}}</mat-list-item>
+        </mat-list>
+    </div>
+    <div *ngIf="details.opening_crawl">
+        <h2>Summary</h2>
+        <div class="details__summary">
+            {{details.opening_crawl}}
+        </div>
+    </div>
+    <h2>{{listTitle}}</h2>
+
+    <div class="details__cast">
+        <mat-card class="details__cast-item"
+                  routerLink="/{{listRelativeUrl}}/{{listItem.url | regid}}"
+                  *ngFor="let listItem of listData | async">
+            <mat-card-title>{{listItem.name ?? listItem.title}}</mat-card-title>
+        </mat-card>
+    </div>
+
+
+</div>

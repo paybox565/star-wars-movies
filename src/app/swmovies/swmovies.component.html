@@ -1,0 +1,12 @@
+<h2>Star Wars Movies</h2>
+    <div class="sw-list">
+        <mat-card class="sw-list__card"
+                  *ngFor="let movie of movies"
+                  routerLink="/movies/{{movie.episode_id}}">
+            <mat-card-content>
+                <span>{{movie.title}}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+

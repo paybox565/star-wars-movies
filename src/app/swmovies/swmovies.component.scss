@@ -1,0 +1,27 @@
+.sw-list {
+
+    &__card {
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 15%, rgba(0,212,255,1) 50%, rgba(9,9,121,1) 85%, rgba(2,0,36,1) 100%);
+        background-size: 100% 90px;
+        background-position: 400px -0;
+        transition: color 0.5s ease, background 0.5s ease;
+        cursor: pointer;
+        margin-bottom: 8px;
+
+        span {
+            font-weight: bolder;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        &:hover {
+            //background: rgb(0,212,255);
+            //background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 65%, rgba(2,0,36,1) 100%);
+            background-position: -100px 0;
+
+            span {
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+    }
+}

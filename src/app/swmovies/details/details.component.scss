@@ -1,0 +1,11 @@
+.details {
+
+    &__cast {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__cast-item {
+        padding: 8px;
+        margin: 8px;
+    }
+}
