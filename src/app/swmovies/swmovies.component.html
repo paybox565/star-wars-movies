@@ -1,4 +1,7 @@
 <h2>Star Wars Movies</h2>
+    <div class="loading-wrap" *ngIf="isLoading">
+        <mat-spinner ></mat-spinner>
+    </div>
     <div class="sw-list">
         <mat-card class="sw-list__card"
                   *ngFor="let movie of movies"

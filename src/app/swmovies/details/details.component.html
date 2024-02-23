@@ -16,13 +16,18 @@
     </div>
     <h2>{{listTitle}}</h2>
 
-    <div class="details__cast">
+    <div class="details__cast" *ngIf="listData | async; else loading">
         <mat-card class="details__cast-item"
                   routerLink="/{{listRelativeUrl}}/{{listItem.url | regid}}"
                   *ngFor="let listItem of listData | async">
             <mat-card-title>{{listItem.name ?? listItem.title}}</mat-card-title>
         </mat-card>
     </div>
+    <ng-template #loading>
+        <div class="loading-wrap">
+            <mat-spinner ></mat-spinner>
+        </div>
+    </ng-template>
 
 
 </div>
