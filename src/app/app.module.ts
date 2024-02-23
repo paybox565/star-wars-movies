@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatList, MatListItem } from '@angular/material/list';
+import { httpCacheInterceptor } from './http-interceptors/http-cache.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MatList, MatListItem } from '@angular/material/list';
       MatListItem,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    {provide: HTTP_INTERCEPTORS, useClass: httpCacheInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

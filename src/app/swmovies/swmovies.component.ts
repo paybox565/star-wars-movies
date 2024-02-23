@@ -10,6 +10,7 @@ import { MoviesDataService } from './movies-data.service';
 export class SwmoviesComponent implements OnInit {
 
     movies: Movie[] = []
+    isLoading: boolean = true
 
     constructor(private moviesService: MoviesDataService) {
     }
@@ -20,6 +21,7 @@ export class SwmoviesComponent implements OnInit {
 
     getMovies(){
         this.moviesService.getMovies().subscribe((data) => {
+            this.isLoading = false
             this.movies = data
         })
     }
