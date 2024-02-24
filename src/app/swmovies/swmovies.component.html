@@ -1,15 +1,16 @@
 <h2>Star Wars Movies</h2>
-    <div class="loading-wrap" *ngIf="isLoading">
-        <mat-spinner ></mat-spinner>
-    </div>
-    <div class="sw-list">
-        <mat-card class="sw-list__card"
-                  *ngFor="let movie of movies"
-                  routerLink="/movies/{{movie.episode_id}}">
-            <mat-card-content>
-                <span>{{movie.title}}</span>
-            </mat-card-content>
-        </mat-card>
-    </div>
+<div class="loading-wrap" *ngIf="!(isLoading$ | async)">
+    <mat-spinner ></mat-spinner>
+</div>
+<div class="sw-list">
+    <mat-card class="sw-list__card"
+              *ngFor="let movie of (moviesData$ | async)"
+              routerLink="/movies/{{movie.episode_id}}">
+        <mat-card-content>
+            <span>{{movie.title}}</span>
+        </mat-card-content>
+    </mat-card>
+</div>
+
 
 

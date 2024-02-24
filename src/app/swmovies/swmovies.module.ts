@@ -9,10 +9,8 @@ import { MatList, MatListItem } from '@angular/material/list';
 import { MatCard, MatCardContent, MatCardTitle } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { RegidPipe } from './regid.pipe';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { httpCacheInterceptor } from '../http-interceptors/http-cache.interceptor';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatButtonToggle } from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -33,10 +31,8 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
         MatIcon,
         MatCardTitle,
         MatProgressSpinner,
+        MatButtonToggle,
 
-    ],
-    providers: [
-        {provide: HTTP_INTERCEPTORS, useClass: httpCacheInterceptor, multi: true}
     ]
 })
 export class SwmoviesModule { }
