@@ -3,6 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { forkJoin } from 'rxjs/internal/observable/forkJoin';
 import { shareReplay } from 'rxjs/internal/operators/shareReplay';
+import { merge } from 'rxjs/internal/operators/merge';
+import { mergeWith } from 'rxjs/internal/operators/mergeWith';
+import { concatAll } from 'rxjs/internal/operators/concatAll';
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +27,12 @@ export class MoviesDataService {
         const url = this.swAPI + 'films/' + id;
         return this.cacheHttpReq(this.cache, url)
     }
-    getAdditionalList (dataArray: string[] = []) {
+    // getAdditionalList (dataArray: string[] = []): Observable<any> {
+    //     const data = dataArray.map(url => this.cacheHttpReq(this.cache, url))
+    //     return forkJoin(data)
+    // }
+
+    getAdditionalList(dataArray: string[]): Observable<any> {
         const data = dataArray.map(url => this.cacheHttpReq(this.cache, url))
         return forkJoin(data)
     }

@@ -5,7 +5,7 @@
 <div class="sw-list">
     <mat-card class="sw-list__card"
               *ngFor="let movie of (moviesData$ | async)"
-              routerLink="/movies/{{movie.episode_id}}">
+              routerLink="/movies/{{movie.url | regid}}">
         <mat-card-content>
             <span>{{movie.title}}</span>
         </mat-card-content>

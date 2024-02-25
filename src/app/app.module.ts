@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { moviesReducer } from './state/reducers/movies.reducer';
 import { MoviesEffects } from './state/effects/movies.effect';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MoviesEffects } from './state/effects/movies.effect';
       MatListItem,
       EffectsModule.forRoot([MoviesEffects]),
       StoreModule.forRoot({movies: moviesReducer}, {}),
+      StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
     provideAnimationsAsync(),

@@ -5,11 +5,10 @@
         flex-wrap: wrap;
     }
     &__cast-item {
-        background: linear-gradient(135deg,  rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%);
-        background-size: 100% 90px;
+        background: linear-gradient(to right,  rgba(208,228,247,1) 0%,rgba(115,177,231,1) 30%,rgba(10,119,213,1) 53%,rgba(83,159,225,1) 77%,rgba(208,228,247,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
         background-position: 40px -0;
         transition: color 0.5s ease, background 0.5s ease;
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(0, 0, 0, 0.8);
         cursor: pointer;
         padding: 8px;
         margin: 8px;

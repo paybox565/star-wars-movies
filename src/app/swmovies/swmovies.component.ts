@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from './movie';
-import { MoviesDataService } from './movies-data.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { Store } from '@ngrx/store';
 import * as MoviesActions from '../state/actions/movies.action';
 import { getMovies, getMoviesLoaded } from '../state/selectors/movies.selector';
+import { MoviesModel } from '../state/movies-data.state';
 
 @Component({
   selector: 'app-swmovies',
@@ -13,13 +13,11 @@ import { getMovies, getMoviesLoaded } from '../state/selectors/movies.selector';
 })
 export class SwmoviesComponent implements OnInit {
 
-    movies: Movie[] = []
     isLoading$: Observable<boolean> = new Observable<boolean>()
     moviesData$: Observable<any> | undefined
 
     constructor(
-        private moviesService: MoviesDataService,
-        private store: Store<{movies: []}>
+        private store: Store<{movies: MoviesModel}>
     ) {
         this.isLoading$ = this.store.select(getMoviesLoaded)
         this.moviesData$ = this.store.select(getMovies)
