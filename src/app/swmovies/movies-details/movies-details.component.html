@@ -1,8 +1,11 @@
-<p><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" routerLink="/"></mat-icon></p>
+<p><mat-icon class="home-icon" aria-hidden="false" aria-label="Example home icon" fontIcon="home" routerLink="/"></mat-icon></p>
 <div>
     <app-details
-            [details]="movie"
+            [details]="currentMovie$ | async"
             [listTitle]="'Cast'"
             [listRelativeUrl]="'characters'"
             [listData]="charactersList$"></app-details>
+</div>
+<div class="loading-wrap" *ngIf="!(isLoading$ | async)">
+    <mat-spinner ></mat-spinner>
 </div>

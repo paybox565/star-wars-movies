@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Movie } from '../movie';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-details',

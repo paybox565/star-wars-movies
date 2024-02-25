@@ -8,8 +8,8 @@ export interface Movie {
     skin_color?: string,
     eye_color?: string,
     birth_year?: string,
-    characters?: string[],
-    films?: string[],
+    characters: string[],
+    films: string[],
     opening_crawl?: string,
     url?: string,
     [propName: string]: any;
