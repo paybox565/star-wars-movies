@@ -1,14 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie } from '../movie';
 import { Observable } from 'rxjs/internal/Observable';
-import { getAdditionalList, getAddListLoaded, getMovie, getMovieChar } from '../../state/selectors/movies.selector';
+import { getAdditionalList, getAddListLoaded, getMovie,  } from '../../state/selectors/movies.selector';
 import { Store } from '@ngrx/store';
 import { MoviesModel } from '../../state/movies-data.state';
 import * as MoviesActions from '../../state/actions/movies.action';
-import { shareReplay } from 'rxjs/internal/operators/shareReplay';
-import { take } from 'rxjs/internal/operators/take';
-import { first } from 'rxjs/internal/operators/first';
 import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
@@ -40,9 +36,6 @@ export class MoviesDetailsComponent implements OnInit, OnDestroy {
 
     getMovieData(){
         this.store.dispatch(MoviesActions.loadMovie({id: this.movieId}))
-        this.subsciption$ = this.currentMovie$?.subscribe((movie: Movie) => {
-            this.store.dispatch(MoviesActions.loadAddList({urlList: movie.characters}))
-        })
     }
 
     ngOnDestroy() {
